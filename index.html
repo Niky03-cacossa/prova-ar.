@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Tesi AR Nicole</title>
-    <!-- Librerie ultra-stabili per smartphone -->
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  </head>
-  
-  <body style="margin: 0px; overflow: hidden;">
-    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
-      
-      <a-assets>
-        <a-asset-item id="cuboBlender" src="cubo.glb"></a-asset-item>
-      </a-assets>
+<head>
+  <title>Tesi AR Nicole</title>
+  <!-- Librerie ultra-stabili per smartphone -->
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.8/aframe/build/aframe-ar.js"></script>
+</head>
 
-      <a-marker type="pattern" url="marker.patt">
-        
-        <!-- 1. CUBO DI TEST GIALLO (Se vedi questo, il tracciamento funziona!) -->
-        <a-box position="0 0.5 0" material="color: yellow; opacity: 0.8;" scale="0.5 0.5 0.5"></a-box>
-        
-        <!-- 2. IL TUO CUBO DI BLENDER (Ingrandito a scala 2 per sicurezza) -->
-        <a-entity gltf-model="#cuboBlender" scale="2 2 2" position="0 0 0" rotation="0 0 0"></a-entity>
-        
-      </a-marker>
-      
-      <a-entity camera></a-entity>
-    </a-scene>
-  </body>
+<body style="margin: 0px; overflow: hidden;">
+  <a-scene
+    embedded
+    arjs="sourceType: webcam; debugUIEnabled: true; smooth: true; smoothCount: 10; smoothTolerance: 0.01;">
+
+    <a-assets>
+      <a-asset-item id="cuboBlender" src="cubo.glb"></a-asset-item>
+    </a-assets>
+
+    <a-marker type="pattern" url="marker.patt">
+
+      <!-- 1. CUBO DI TEST GIALLO (Se vedi questo, il tracciamento funziona!) -->
+      <a-box position="0 0.5 0" material="color: yellow; opacity: 0.8;" scale="0.5 0.5 0.5"></a-box>
+
+      <!-- 2. IL TUO CUBO DI BLENDER (ingrandito a scala 2 per sicurezza) -->
+      <a-entity gltf-model="#cuboBlender" scale="2 2 2" position="0 0 0" rotation="0 0 0"></a-entity>
+
+    </a-marker>
+
+    <a-entity camera></a-entity>
+
+  </a-scene>
+</body>
 </html>
